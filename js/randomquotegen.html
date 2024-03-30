@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Quote Generator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #quote {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  #author {
+    font-style: italic;
+  }
+  #new-quote-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div id="quote-container">
+  <p id="quote">Click the button below to generate a random quote.</p>
+  <p id="author"></p>
+  <button id="new-quote-btn">New Quote</button>
+</div>
+
+<script>
+  // Array of quotes
+  const quotes = [
+    { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+    { text: "Stay hungry, stay foolish.", author: "Steve Jobs" },
+    { text: "Your time is limited, don't waste it living someone else's life.", author: "Steve Jobs" },
+    { text: "Design is not just what it looks like and feels like. Design is how it works.", author: "Steve Jobs" },
+    { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+    { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
+    { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" },
+    { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" }
+  ];
+
+  // Function to generate a random quote
+  function generateRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quote = quotes[randomIndex];
+    document.getElementById('quote').textContent = `"${quote.text}"`;
+    document.getElementById('author').textContent = `- ${quote.author}`;
+  }
+
+  // Event listener for the button click
+  document.getElementById('new-quote-btn').addEventListener('click', generateRandomQuote);
+
+  // Generate a random quote when the page loads
+  generateRandomQuote();
+</script>
+
+</body>
+</html>
